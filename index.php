@@ -1,7 +1,7 @@
 <?php
 include 'config.php';
-
 if ($_POST) {
+    $timestamp = date('c'); // ISO 8601 format (Recommended)
     $dynamodb->putItem([
         'TableName' => 'users',
         'Item' => [
@@ -10,10 +10,10 @@ if ($_POST) {
             'email'   => ['S' => $_POST['email']],
             'contactno'   => ['S' => $_POST['contactno']],
             'message'   => ['S' => $_POST['message']],
-            'created_at' => ['S' => $timestamp]
+            'created_at' => ['S' => $timestamp]   // ✅  Timestamp Added
         ]
     ]);
-    
+
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Process form data
     $success = true; // Assume success for this example
