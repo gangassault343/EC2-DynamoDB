@@ -9,7 +9,7 @@ if ($_POST) {
             'name'    => ['S' => $_POST['name']],
             'email'   => ['S' => $_POST['email']],
             'contactno'   => ['S' => $_POST['contactno']],
-            'message'   => ['S' => $_POST['message']]
+            'message'   => ['S' => $_POST['message']],
             'created_at' => ['S' => $timestamp]
         ]
     ]);
