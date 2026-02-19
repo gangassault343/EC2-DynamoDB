@@ -14,7 +14,9 @@ $result = $dynamodb->scan([
     <th>Name</th>
     <th>Email</th>
     <th>Message</th>
+    <th>TimeStamp</th>
     <th>Action</th>
+    
 </tr>
 
 <?php foreach ($result['Items'] as $item): ?>
@@ -23,6 +25,7 @@ $result = $dynamodb->scan([
     <td><?= $item['name']['S'] ?></td>
     <td><?= $item['email']['S'] ?></td>
     <td><?= $item['message']['S'] ?></td>
+    <td><?= $item['timestamp']['S'] ?></td>
     <td>
         <a href="edit.php?id=<?= $item['user_id']['S'] ?>">Edit</a>
         <a href="delete.php?id=<?= $item['user_id']['S'] ?>">Delete</a>
