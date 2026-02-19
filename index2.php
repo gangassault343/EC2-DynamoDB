@@ -525,9 +525,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 document.addEventListener("DOMContentLoaded", function() {
     Swal.fire({
         title: "Thank You Very Much 😊",
-        text: "Your message has been sent successfully!",
+        text: "I would love to hear more",
         icon: "success",
-        confirmButtonText: "OK"
+        confirmButtonText: "OK"        
     }).then(() => {
         window.location.href = "index.php";
     });
