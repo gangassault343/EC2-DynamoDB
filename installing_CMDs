@@ -1,0 +1,19 @@
+//For Amazon Linux
+sudo yum update -y
+sudo yum install httpd php php-cli php-mbstring git -y
+sudo systemctl start httpd
+sudo systemctl enable httpd
+//Install Composer
+cd /var/www/html
+curl -sS https://getcomposer.org/installer | php
+sudo mv composer.phar /usr/local/bin/composer
+//Install AWS SDK
+composer require aws/aws-sdk-php
+//Project Structure
+/var/www/html/
+ ├── index.php
+ ├── create.php
+ ├── edit.php
+ ├── delete.php
+ ├── config.php
+ ├── vendor/
