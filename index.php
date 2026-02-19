@@ -1,18 +1,21 @@
 <?php
 include 'config.php';
+
 if ($_POST) {
-    $timestamp = date('c'); // ISO 8601 format (Recommended)
-    $dynamodb->putItem([
-        'TableName' => 'users',
-        'Item' => [
-            'user_id' => ['S' => uniqid()],
-            'name'    => ['S' => $_POST['name']],
-            'email'   => ['S' => $_POST['email']],
-            'contactno'   => ['S' => $_POST['contactno']],
-            'message'   => ['S' => $_POST['message']],
-            'created_at' => ['S' => $timestamp]   // ✅  Timestamp Added
-        ]
-    ]);
+    date_default_timezone_set('Asia/Kolkata');
+    $timestamp = date('d-m-Y H:i');
+
+$result = $dynamodb->putItem([
+    'TableName' => 'users',
+    'Item' => [
+        'user_id'   => ['S' => uniqid()],
+        'name'      => ['S' => $_POST['name']],
+        'email'     => ['S' => $_POST['email']],
+        'contactno' => ['S' => $_POST['contactno']],
+        'message'   => ['S' => $_POST['message']],
+        'created_at'=> ['S' => $timestamp]
+    ]
+]);
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Process form data
