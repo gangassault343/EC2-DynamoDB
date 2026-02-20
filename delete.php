@@ -10,5 +10,5 @@ $dynamodb->deleteItem([
     ]
 ]);
 
-header("Location: index.php");
+header("Location: view.php");
 ?>
